@@ -1,14 +1,18 @@
+import java.util.Arrays;
+
 public class Memoria {
     private int minimo, maximo;
+    private int posCabeca;
     private int[] blocos;
 
     public Memoria(int minimo, int maximo) {
         this.minimo = minimo;
         this.maximo = maximo;
-        this.blocos = gerarNumeros(maximo-minimo);
+        this.posCabeca = (int) Math.ceil((maximo - minimo + 1) / 2);
+        this.blocos = gerarBlocos(maximo - minimo + 1);
     }
 
-    private int[] gerarNumeros(int tamanho) {
+    private int[] gerarBlocos(int tamanho) {
         int[] blocos = new int[tamanho];
 
         for (int i = 0; i < tamanho; i++) {
@@ -18,27 +22,47 @@ public class Memoria {
         return blocos;
     }
 
-    public int getMinimo() {
-        return minimo;
+    public int getPosCabeca() {
+        return posCabeca;
     }
 
-    public void setMinimo(int minimo) {
-        this.minimo = minimo;
+    public void setPosCabeca(int posCabeca) {
+        this.posCabeca = posCabeca;
     }
 
-    public int getMaximo() {
-        return maximo;
-    }
-
-    public void setMaximo(int maximo) {
-        this.maximo = maximo;
+    public int getPosCabecaBloco() {
+        return posCabeca + this.minimo;
     }
 
     public int[] getBlocos() {
         return blocos;
     }
 
-    public void setBlocos(int[] blocos) {
-        this.blocos = blocos;
+
+    @Override
+    public String toString() {
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Blocos{ ");
+        int bloco;
+        for (int i = 0; i < this.blocos.length; i++) {
+            bloco = this.minimo + i;
+
+            sb.append("#" + bloco + "➡");
+//            sb.append("#");
+
+            if (i == this.posCabeca) {
+                sb.append("|▶️" + this.blocos[i] + "◀️|");
+            } else {
+                sb.append("|  " + this.blocos[i] + "  |");
+            }
+
+            if (i != this.blocos.length - 1) sb.append(", ");
+        }
+
+        sb.append("}");
+
+        return sb.toString();
     }
 }
