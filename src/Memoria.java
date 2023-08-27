@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Memoria {
     private int minimo, maximo;
     private int posCabeca;
@@ -8,7 +6,7 @@ public class Memoria {
     public Memoria(int minimo, int maximo) {
         this.minimo = minimo;
         this.maximo = maximo;
-        this.posCabeca = (int) Math.ceil((maximo - minimo + 1) / 2);
+        this.posCabeca = (int) Math.ceil((maximo - minimo) / 2);
         this.blocos = gerarBlocos(maximo - minimo + 1);
     }
 
@@ -16,7 +14,7 @@ public class Memoria {
         int[] blocos = new int[tamanho];
 
         for (int i = 0; i < tamanho; i++) {
-            blocos[i] = (int) (Math.random() * 100);
+            blocos[i] = (int) (Math.random() * 99);
         }
 
         return blocos;

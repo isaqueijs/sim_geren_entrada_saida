@@ -19,7 +19,7 @@ public class Main {
         int qtdReqBlocos = ler.nextInt();
 
         while ((qtdReqBlocos < 1) || (qtdReqBlocos > maximo - minimo)) {
-            System.out.printf("Voce precisa informar um número entre %d e %d.\n", 1, maximo-minimo+1);
+            System.out.printf("Voce precisa informar um número entre %d e %d.\n", 1, maximo - minimo + 1);
             System.out.printf("Informe a quantidade de blocos a serem visitados {Valor = [%d,%d]:} ", 1, maximo - minimo + 1);
             qtdReqBlocos = ler.nextInt();
         }
@@ -29,12 +29,12 @@ public class Main {
         int endBloco;
 
         for (int i = 0; i < qtdReqBlocos; i++) {
-            System.out.printf("Informe ordem dos blocos a serem visitados {Indice do bloco = [%d,%d]}: ", minimo, maximo);
+            System.out.printf("Informe os blocos a serem visitados {Indice do bloco = [%d,%d]}: ", minimo, maximo);
             endBloco = ler.nextInt();
 
             while ((endBloco < minimo) || (endBloco > maximo)) {
                 System.out.printf("Voce precisa informar um número entre %d e %d.\n", minimo, maximo);
-                System.out.printf("Informe ordem dos blocos a serem visitados {Indice do bloco = [%d,%d]}: ", minimo, maximo);
+                System.out.printf("Informe os blocos a serem visitados {Indice do bloco = [%d,%d]}: ", minimo, maximo);
                 endBloco = ler.nextInt();
             }
 
